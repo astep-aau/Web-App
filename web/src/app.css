@@ -1,0 +1,135 @@
+/*
+ * Shared design tokens for the aSTEP showcase. Every group page should use these variables
+ * instead of raw colours so light/dark mode and the overall look stay consistent.
+ */
+:root {
+	color-scheme: light;
+
+	--font-sans: 'Fira Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--font-mono: 'Fira Code', ui-monospace, 'SF Mono', Menlo, monospace;
+
+	--color-bg: #f8fafc;
+	--color-surface: #ffffff;
+	--color-surface-muted: #f1f5f9;
+	--color-border: #e2e8f0;
+	--color-border-strong: #cbd5e1;
+	--color-text: #0f172a;
+	--color-text-muted: #475569;
+	--color-primary: #1e40af;
+	--color-primary-hover: #1e3a8a;
+	--color-on-primary: #ffffff;
+	--color-primary-soft: #dbeafe;
+	--color-accent: #d97706;
+	--color-good: #15803d;
+	--color-bad: #dc2626;
+	--color-warning-bg: #fef3c7;
+	--color-warning-text: #92400e;
+	--color-danger-bg: #fee2e2;
+	--color-danger-text: #991b1b;
+	--color-ring: #3b82f6;
+
+	/* Map line colours (kept in sync with the MapLibre styles). */
+	--map-correct: #1a9850;
+	--map-wrong: #d73027;
+
+	--radius-sm: 6px;
+	--radius-md: 10px;
+	--radius-lg: 14px;
+	--shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+	--shadow-md: 0 4px 16px rgb(15 23 42 / 0.08), 0 1px 3px rgb(15 23 42 / 0.06);
+
+	--header-height: 56px;
+	--page-gutter: clamp(16px, 3vw, 32px);
+	--duration: 180ms;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+
+		--color-bg: #0b1120;
+		--color-surface: #111827;
+		--color-surface-muted: #1e293b;
+		--color-border: #253247;
+		--color-border-strong: #334155;
+		--color-text: #e2e8f0;
+		--color-text-muted: #94a3b8;
+		--color-primary: #60a5fa;
+		--color-primary-hover: #93c5fd;
+		--color-on-primary: #0b1120;
+		--color-primary-soft: #172554;
+		--color-accent: #f59e0b;
+		--color-good: #4ade80;
+		--color-bad: #f87171;
+		--color-warning-bg: #422006;
+		--color-warning-text: #fcd34d;
+		--color-danger-bg: #450a0a;
+		--color-danger-text: #fca5a5;
+		--color-ring: #60a5fa;
+
+		--map-correct: #4ade80;
+		--map-wrong: #f87171;
+
+		--shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+		--shadow-md: 0 4px 16px rgb(0 0 0 / 0.45), 0 1px 3px rgb(0 0 0 / 0.3);
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-sans);
+	font-size: 16px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+	text-wrap: balance;
+}
+
+a {
+	color: var(--color-primary);
+}
+
+button,
+select,
+input {
+	font: inherit;
+	color: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-ring);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+.tabular {
+	font-family: var(--font-mono);
+	font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+	}
+}
