@@ -25,6 +25,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 GetData.Map(app);
+AttributePredictionEndpoints.Map(app);
 
 var summaries = new[]
 {

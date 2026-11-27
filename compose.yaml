@@ -3,10 +3,14 @@ services:
     build:
       context: .
       dockerfile: api/Dockerfile
-    env_file:
-      - ../data/.env
+    # Talks to the local Postgres from the data repo (its `docker compose up` exposes 5432 on the host).
+    # Defaults match the data repo's .env.example; override via a .env file next to this compose file.
     environment:
       POSTGRES_HOST: host.docker.internal
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_DB: ${POSTGRES_DB:-data}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:

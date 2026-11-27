@@ -14,5 +14,12 @@ export default defineConfig({
 
 			adapter: adapter()
 		})
-	]
+	],
+	server: {
+		// In `npm run dev`, forward /api to the local API on :8080 (`dotnet run` or `docker compose up api`),
+		// mirroring how the ingress routes /api on the server.
+		proxy: {
+			'/api': 'http://localhost:8080'
+		}
+	}
 });
